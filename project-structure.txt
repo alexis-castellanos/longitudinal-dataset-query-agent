@@ -1,0 +1,32 @@
+longitudinal-llm/
+├── app.py                      # Main Streamlit application
+├── requirements.txt            # Python dependencies
+├── LICENSE                     # MIT License
+├── README.md                   # Project documentation
+├── .gitignore                  # Git ignore file
+├── setup.py                    # Package installation
+├── Makefile                    # Development commands
+├── .github/                    # GitHub specific files
+│   └── workflows/              # GitHub Actions
+│       ├── tests.yml           # Run tests on push
+│       └── lint.yml            # Run linting on push
+├── src/                        # Source code
+│   ├── __init__.py             # Package initialization
+│   ├── data_models.py          # Pydantic models for data structures
+│   ├── query_processor.py      # LLM query processing logic
+│   ├── data_manager.py         # Dataset handling and transformations
+│   └── utils.py                # Helper functions
+├── tests/                      # Test suite
+│   ├── __init__.py
+│   ├── test_data_models.py
+│   ├── test_query_processor.py
+│   └── test_data_manager.py
+├── data/                       # Sample data (gitignored for real data)
+│   ├── sample/                 # Sample datasets for demo
+│   └── README.md               # Data documentation
+├── docs/                       # Documentation
+│   ├── images/                 # Screenshots and diagrams
+│   ├── custom_data.md          # Guide for using custom data
+│   └── development.md          # Development guide
+└── notebooks/                  # Jupyter notebooks for exploration
+    └── examples.ipynb          # Example usage notebook

@@ -1,0 +1,48 @@
+.PHONY: setup test lint format clean run help
+
+# Default target
+help:
+	@echo "Available commands:"
+	@echo "  make setup    - Install dependencies"
+	@echo "  make test     - Run tests"
+	@echo "  make lint     - Run linting checks"
+	@echo "  make format   - Format code"
+	@echo "  make clean    - Clean temporary files"
+	@echo "  make run      - Run the application"
+
+# Install dependencies
+setup:
+	pip install -r requirements.txt
+	pip install -e .
+
+# Run tests
+test:
+	python -m pytest tests/ -v
+
+# Run linting
+lint:
+	python -m flake8 src/ tests/
+	python -m mypy src/ tests/
+
+# Format code
+format:
+	python -m black src/ tests/
+	python -m isort src/ tests/
+
+# Clean temporary files
+clean:
+	rm -rf build/
+	rm -rf dist/
+	rm -rf *.egg-info
+	rm -rf .pytest_cache/
+	rm -rf .mypy_cache/
+	find . -type d -name __pycache__ -exec rm -rf {} +
+	find . -type f -name "*.pyc" -delete
+
+# Run the application
+run:
+	streamlit run app.py
+
+# Package the application
+package:
+	python setup.py sdist bdist_wheel
